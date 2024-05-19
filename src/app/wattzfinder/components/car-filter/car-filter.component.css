@@ -1,0 +1,87 @@
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  border: 1px  #ccc;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+label {
+  margin: 5px;
+}
+
+select, input {
+  margin: 5px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.laptops-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.laptop-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 16px;
+  width: 300px;
+  text-align: center;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.laptop-card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.laptop-card h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.laptop-card p {
+  margin: 5px 0;
+}
+
+button {
+  background-color: #00BDD6;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.paginator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-paginator {
+  max-width: 400px;
+  width: 100%;
+}
+

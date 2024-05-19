@@ -1,0 +1,51 @@
+<app-header></app-header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<form [formGroup]="filterForm" (ngSubmit)="buscarConFiltros()">
+  <label for="brand">Brand:</label>
+  <select formControlName="brand" id="brand">
+    <option *ngFor="let option of brandOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
+  </select>
+
+  <label for="priceMin">Min Price:</label>
+  <input type="number" formControlName="priceMin" id="priceMin">
+
+  <label for="priceMax">Max Price:</label>
+  <input type="number" formControlName="priceMax" id="priceMax">
+
+  <label for="typeStorage">Storage Type:</label>
+  <select formControlName="typeStorage" id="typeStorage">
+    <option *ngFor="let option of typeStorageOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
+  </select>
+
+  <label for="cpu">CPU:</label>
+  <select formControlName="cpu" id="cpu">
+    <option *ngFor="let option of cpuOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
+  </select>
+
+  <label for="gpu">GPU:</label>
+  <select formControlName="gpu" id="gpu">
+    <option *ngFor="let option of gpuOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
+  </select>
+
+  <label for="gpu">Order:</label>
+  <select formControlName="order" id="order">
+    <option *ngFor="let option of order" [value]="option">{{ option === '' ? 'Any' : option }}</option>
+  </select>
+
+  <button type="submit">Filter </button>
+
+  <div class="cars-container">
+    <div class="laptop-card" *ngFor="let laptop of paginatedcars">
+      <h2>{{ laptop.Brand }} - {{ laptop.Model }}</h2>
+      <img src="assets/laptop.png" alt="Imagen genercia de laptop">
+      <p><strong>Status:</strong> {{ laptop.Status }}</p>
+      <p><strong>Final Price:</strong> ${{ laptop["Final Price"] }}</p>
+      <button (click)="verMas(laptop.id)">Ver Más</button>
+    </div>
+  </div>
+</form>
+
+<div class="paginator-container">
+  <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="[]" showFirstLastButtons></mat-paginator>
+</div>
+<app-footer></app-footer>

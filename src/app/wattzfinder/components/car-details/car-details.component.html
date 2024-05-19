@@ -1,0 +1,104 @@
+<app-header></app-header>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+/>
+<div *ngIf="Car">
+  <div class="Car-container">
+    <div class="image-container">
+      <img src="assets/Car.png" alt="Imagen generica de Car" />
+    </div>
+    <div class="info-container">
+      <h2>{{ Car.Brand }} - {{ Car.Model }}</h2>
+      <p><strong>GPU:</strong> {{ Car.GPU || "Graphics Integrer" }}</p>
+      <p><strong>CPU:</strong> {{ Car.CPU }}</p>
+      <p><strong>RAM:</strong> {{ Car.RAM }} GB</p>
+      <p>
+        <strong>Storage:</strong> {{ Car.Storage }} GB
+        {{ Car["Storage Type"] }}
+      </p>
+      <p><strong>Screen:</strong> {{ Car.Screen }}"</p>
+      <p><strong>Status:</strong> {{ Car.Status }}</p>
+      <p><strong>Final Price:</strong> ${{ Car["Final Price"] }}</p>
+    </div>
+  </div>
+
+  <h3>Recommendations:</h3>
+
+  <form [formGroup]="myForm" (ngSubmit)="filterCars()">
+    <div class="filter-container">
+
+      <label for="brand">Brand:</label>
+      <select formControlName="brand" id="brand">
+        <option *ngFor="let option of brand" [value]="option">
+          {{ option === "" ? "Any" : option }}
+        </option>
+      </select>
+
+      <label for="typeStorage">Storage Type:</label>
+      <select formControlName="typeStorage" id="typeStorage">
+        <option *ngFor="let option of storage" [value]="option">
+          {{ option === "" ? "Any" : option }}
+        </option>
+      </select>
+
+      <label for="cpu">CPU:</label>
+      <select formControlName="cpu" id="cpu">
+        <option *ngFor="let option of cpu" [value]="option">
+          {{ option === "" ? "Any" : option }}
+        </option>
+      </select>
+
+      <label for="gpu">GPU:</label>
+      <select formControlName="gpu" id="gpu">
+        <option *ngFor="let option of gpu" [value]="option">
+          {{ option === "" ? "Any" : option }}
+        </option>
+      </select>
+
+      <label for="status">Status:</label>
+      <select formControlName="status" id="status">
+        <option *ngFor="let option of status" [value]="option">
+          {{ option === "" ? "Any" : option }}
+        </option>
+      </select>
+
+      <label for="price">Price:</label>
+      <select formControlName="price" id="price">
+        <option *ngFor="let option of price" [value]="option">
+          {{ option === "" ? "Any" : option }}
+        </option>
+      </select>
+
+      <label for="storage">storage:</label>
+      <select formControlName="storage" id="storage">
+        <option *ngFor="let option of storage" [value]="option">
+          {{ option === "" ? "Any" : option }}
+        </option>
+      </select>
+
+      <button type="submit">Filter</button>
+    </div>
+  </form>
+
+  <div class="Card-recomendation-container">
+    <div *ngFor="let recommendation of recommendations">
+      <div class="Card-recomendation">
+        <h4>{{ recommendation.Brand }} - {{ recommendation.Model }}</h4>
+        <p><strong>GPU:</strong> {{ recommendation.GPU }}</p>
+        <p><strong>CPU:</strong> {{ recommendation.CPU }}</p>
+        <p><strong>RAM:</strong> {{ recommendation.RAM }} GB</p>
+        <p>
+          <strong>Storage:</strong> {{ recommendation.Storage }} GB
+          {{ recommendation["Storage Type"] }}
+        </p>
+        <p><strong>Screen:</strong> {{ recommendation.Screen }}"</p>
+        <p><strong>Status:</strong> {{ recommendation.Status }}</p>
+        <p>
+          <strong>Final Price:</strong> ${{ recommendation["Final Price"] }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

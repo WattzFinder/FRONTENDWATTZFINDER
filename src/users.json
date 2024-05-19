@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "fullName": "Erick",
+      "email": "erickruiztorres13062001@gmail.com",
+      "password": "erickruiz",
+      "code": "1234",
+      "profesion": "Engineer"
+    },
+    {
+      "id": "8e9f",
+      "fullName": "julio",
+      "email": "990883151",
+      "password": "eefe",
+      "code": "",
+      "profesion": "fefefe"
+    },
+    {
+      "id": "15db",
+      "fullName": "piero",
+      "email": "pieroruiz",
+      "password": "434343",
+      "code": "",
+      "profesion": "ingeniero"
+    }
+  ]
+}
