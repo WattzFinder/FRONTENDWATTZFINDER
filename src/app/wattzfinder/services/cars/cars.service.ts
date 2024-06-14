@@ -11,14 +11,17 @@ export class CarsService {
   private apiUrl2 = 'https://josehp29.pythonanywhere.com/api/Cars';
   constructor(private http: HttpClient) {}
 
+
+  //devuelve vehiculos por alquiler
   getCarById(id: number): Observable<Car> {
     return this.http.get<Car>(`${this.apiUrl}/Cars/${id}`);
   }
 
-  getRecommendationsById(id: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/Cars/${id}/recommendation`);
-  }
 
+  // getRecommendationsById(id: number): Observable<any[]> {
+  //   return this.http.get<any[]>(`${this.apiUrl}/Cars/${id}/recommendation`);
+  // }
+//devuelde el filtro de los vehiculos
   getCarsByFilter(params: any): Observable<any> {
     let parameter=[];
     if(params.brand!=""){parameter.push(`brand=${params.brand}`);}
@@ -33,15 +36,15 @@ export class CarsService {
     return this.http.get<any[]>(`${this.apiUrl}/Cars/filter?${cadena}`);
   }
 
-  filterCars(CarId: number, params: any): Observable<any> {
-    const queryParams = Object.entries(params)
-      .filter(([key, value]) => value)
-      .map(([key]) => `${key}=True`)
-      .join('&');
-
-    const urlWithParams = `${this.apiUrl2}/${CarId}/recommendation/filter?${queryParams}`;
-
-    console.log(urlWithParams)
-    return this.http.get(urlWithParams);
-  }
+  // filterCars(CarId: number, params: any): Observable<any> {
+  //   const queryParams = Object.entries(params)
+  //     .filter(([key, value]) => value)
+  //     .map(([key]) => `${key}=True`)
+  //     .join('&');
+  //
+  //   const urlWithParams = `${this.apiUrl2}/${CarId}/recommendation/filter?${queryParams}`;
+  //
+  //   console.log(urlWithParams)
+  //   return this.http.get(urlWithParams);
+  // }
 }

@@ -19,7 +19,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 
-import {CarDetailsComponent} from "./wattzfinder/components/car-details/car-details.component";
+// import {CarDetailsComponent} from "./wattzfinder/components/car-details/car-details.component";
 import {CarFilterComponent} from "./wattzfinder/components/car-filter/car-filter.component";
 import {LoginFormComponent} from "./wattzfinder/components/login-form/login-form.component";
 import {SingupFormComponent} from "./wattzfinder/components/singup-form/singup-form.component";
@@ -38,7 +38,7 @@ import {UsersService} from "./wattzfinder/services/users/users.service";
     FooterComponent,
     HeaderComponent,
     ReviewsComponent,
-    CarDetailsComponent,
+    // CarDetailsComponent,
     CarFilterComponent,
   ],
   imports: [

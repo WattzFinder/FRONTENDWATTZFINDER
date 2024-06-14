@@ -17,10 +17,14 @@ export class CarFilterComponent  implements OnInit {
   cars: Car[] = [];
   paginatedcars: Car[] = [];
 
-  brandOptions = ['', 'ACER', 'APPLE', 'DELL','ASUS', 'LG', 'MSI', 'RAZER', 'SAMSUNG', 'TOSHIBA', 'GIGABYTE', 'HP', 'ALURIN'];
-  typeStorageOptions = ['', 'SSD'];
-  cpuOptions = ['', 'Intel', 'AMD'];
-  gpuOptions = ['', 'RTX', 'GTX', 'T', 'Radeon'];
+  empresaOptions=['', 'TESLA', 'BMW', 'RIVIAN','CHEVROLET', 'KIA'];
+  modeloOptions = ['', 'MODEL X', 'MODEL Y', 'FUSION','NITRO', 'PRIUS PRIME', 'VOLT', 'LEAF', 'R1T', 'MODEL 3', 'OPTIMA', 'BMW', 'CLARITY'];
+  tipovehiculoOptions=['', 'Hibrido(hev)' , 'Hibrido enchufable(PHEV )' , ' A batería(BEV)'];
+  ano_fabricacion=0;
+  autonomia_vehiculo=0;
+  descuento=0;
+  precio_final=0;
+
   order = ['', 'DESC', 'ASC'];
   pageSize = 8;
   currentPage = 0;
@@ -32,12 +36,13 @@ export class CarFilterComponent  implements OnInit {
 
   constructor(private fb: FormBuilder, private carservice: CarsService,private router:Router) {
     this.filterForm = this.fb.group({
-      brand: ["", Validators.required],
-      priceMin: [null, [Validators.required, Validators.min(1)]],
-      priceMax: [null, [Validators.required, Validators.min(1)]],
-      typeStorage: ["", Validators.required],
-      cpu: ["", Validators.required],
-      gpu: ["", Validators.required],
+      modelo: ["", Validators.required],
+      empresa: ["", Validators.required],
+      preciofinal: [null, [Validators.required, Validators.min(1)]],
+      descuento: [null, [Validators.required, Validators.min(1)]],
+      anofabricacion: [null, [Validators.required, Validators.min(2018)]],
+      autonomiavehiculo: [null, [Validators.required, Validators.min(1)]],
+      tipovehiculo: ["", Validators.required],
       order: ["", Validators.required]
     });
   }
@@ -71,7 +76,5 @@ export class CarFilterComponent  implements OnInit {
       }
     );
   }
-  verMas(id: number): void {
-    this.router.navigate(['/cars', id]);
-  }
+
 }

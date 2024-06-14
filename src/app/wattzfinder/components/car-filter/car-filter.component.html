@@ -1,46 +1,62 @@
 <app-header></app-header>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
 <form [formGroup]="filterForm" (ngSubmit)="buscarConFiltros()">
-  <label for="brand">Brand:</label>
-  <select formControlName="brand" id="brand">
-    <option *ngFor="let option of brandOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
+
+<!--  //EMPRESA FABRICADORA-->
+  <label for="empresa">Empresa Fabricadora:</label>
+  <select formControlName="empresa" id="empresa">
+    <option *ngFor="let option of empresaOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
   </select>
 
-  <label for="priceMin">Min Price:</label>
-  <input type="number" formControlName="priceMin" id="priceMin">
-
-  <label for="priceMax">Max Price:</label>
-  <input type="number" formControlName="priceMax" id="priceMax">
-
-  <label for="typeStorage">Storage Type:</label>
-  <select formControlName="typeStorage" id="typeStorage">
-    <option *ngFor="let option of typeStorageOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
+<!--  //MODELO DE VEHICULO-->
+  <label for="modelo">Modelo:</label>
+  <select formControlName="modelo" id="modelo">
+    <option *ngFor="let option of modeloOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
   </select>
 
-  <label for="cpu">CPU:</label>
-  <select formControlName="cpu" id="cpu">
-    <option *ngFor="let option of cpuOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
+<!--  //TIPO DE VEHICULO-->
+  <label for="tipo_vehiculo">Storage Type:</label>
+  <select formControlName="tipo_vehiculo" id="tipo_vehiculo">
+    <option *ngFor="let option of tipovehiculoOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
   </select>
 
-  <label for="gpu">GPU:</label>
-  <select formControlName="gpu" id="gpu">
-    <option *ngFor="let option of gpuOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
-  </select>
 
-  <label for="gpu">Order:</label>
-  <select formControlName="order" id="order">
-    <option *ngFor="let option of order" [value]="option">{{ option === '' ? 'Any' : option }}</option>
-  </select>
+<!--//AÑO DE MODEO DE VEHICULO-->
+  <label for="anofabricacion">Año Modelo:</label>
+  <input type="number" formControlName="anofabricacion" id="anofabricacion">
 
-  <button type="submit">Filter </button>
+
+
+<!--//AUTONOMIA DE VEHICULO-->
+  <label for="autonomiavehiculo">Autonomía de vehículo: </label>
+  <input type="number" formControlName="autonomiavehiculo" id="autonomiavehiculo">
+
+<!--&lt;!&ndash;  //DESCUENTO&ndash;&gt;-->
+<!--  <label for="descuento">Descuento:</label>-->
+<!--  <input type="number" formControlName="descuento" id="descuento">-->
+
+<!--  //PRECIO FINAL-->
+  <label for="preciofinal">Precio de Vehiculo:</label>
+  <input type="number" formControlName="preciofinal" id="preciofinal">
+
+
+
+
+
+  <button type="submit" class="custom-button">Filter</button>
 
   <div class="cars-container">
-    <div class="laptop-card" *ngFor="let laptop of paginatedcars">
-      <h2>{{ laptop.Brand }} - {{ laptop.Model }}</h2>
-      <img src="assets/laptop.png" alt="Imagen genercia de laptop">
-      <p><strong>Status:</strong> {{ laptop.Status }}</p>
-      <p><strong>Final Price:</strong> ${{ laptop["Final Price"] }}</p>
-      <button (click)="verMas(laptop.id)">Ver Más</button>
+    <div class="laptop-card" *ngFor="let cars of paginatedcars">
+      <h2>{{ cars.modelo }} </h2>
+      <h3>{{ cars.empresa_fabricadora }} </h3>
+      <img src="assets/cars.jpg" alt="Imagen de vehiculo">
+      <p><strong>Año de Fabricación:</strong> {{ cars.ano_Fabricacion }}</p>
+      <p><strong>Tipo de Vehciculo:</strong> {{ cars.tipo }}</p>
+      <p><strong>Autonomía del Vehiculo:</strong> {{ cars.autonomia }}</p>
+      <p><strong>Descuento:</strong> {{ cars.descuento }}</p>
+      <p><strong>Precio Final:</strong> {{ cars.precionfinal }}</p>
+
     </div>
   </div>
 </form>
