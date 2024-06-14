@@ -85,10 +85,10 @@ button {
   width: 100%;
 }
 .custom-button {
-  font-size: 30px; /* Aumenta el tamaño de la letra */
-  display: block;  /* Para asegurarte de que se centre */
-  margin: 0 auto;  /* Centrar el botón */
-  background: #1da1f2;
-  padding: 10px 20px; /* Espaciado interno del botón */
-  text-align: center; /* Asegura que el texto esté centrado */
+  font-size: 20px;
+  display: block;
+  margin: 0 auto;
+  background: #00BDD6;
+  padding: 10px 20px;
+  text-align: center;
 }

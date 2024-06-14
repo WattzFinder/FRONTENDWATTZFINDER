@@ -16,7 +16,7 @@
   </select>
 
 <!--  //TIPO DE VEHICULO-->
-  <label for="tipo_vehiculo">Storage Type:</label>
+  <label for="tipo_vehiculo">Tipo Vehiculo:</label>
   <select formControlName="tipo_vehiculo" id="tipo_vehiculo">
     <option *ngFor="let option of tipovehiculoOptions" [value]="option">{{ option === '' ? 'Any' : option }}</option>
   </select>
@@ -24,13 +24,13 @@
 
 <!--//AÑO DE MODEO DE VEHICULO-->
   <label for="anofabricacion">Año Modelo:</label>
-  <input type="number" formControlName="anofabricacion" id="anofabricacion">
+  <input type="number" formControlName="anofabricacion" id="anofabricacion" style="width: 80px;">
 
 
 
 <!--//AUTONOMIA DE VEHICULO-->
   <label for="autonomiavehiculo">Autonomía de vehículo: </label>
-  <input type="number" formControlName="autonomiavehiculo" id="autonomiavehiculo">
+  <input type="number" formControlName="autonomiavehiculo" id="autonomiavehiculo" style="width: 80px;">
 
 <!--&lt;!&ndash;  //DESCUENTO&ndash;&gt;-->
 <!--  <label for="descuento">Descuento:</label>-->
@@ -38,7 +38,7 @@
 
 <!--  //PRECIO FINAL-->
   <label for="preciofinal">Precio de Vehiculo:</label>
-  <input type="number" formControlName="preciofinal" id="preciofinal">
+  <input type="number" formControlName="preciofinal" id="preciofinal" style="width: 80px;">
 
 
 

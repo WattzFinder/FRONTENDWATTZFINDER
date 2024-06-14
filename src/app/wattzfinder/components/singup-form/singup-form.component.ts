@@ -14,7 +14,7 @@ export class SingupFormComponent {
     email: '',
     password: '',
     code: '',
-    profesion: ''
+
   };
 
   constructor(private registrationService: UsersService, private router: Router) {
